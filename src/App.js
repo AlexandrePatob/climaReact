@@ -6,7 +6,7 @@ class App extends Component {
 
   chamarApiDoPato = async cidade => {
     const response = await axios.get(
-      `http://testeapiclima.herokuapp.com/${cidade}`
+      `https://testeapiclima.herokuapp.com/${cidade}`
     );
     this.setState({ clima: response.data.weather[0].description });
   };
