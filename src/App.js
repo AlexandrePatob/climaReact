@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class App extends Component {
-  state = { cidade: "", clima: "" };
+  state = { cidade: "", clima: "" ,temperatura:""};
 
   chamarApiDoPato = async cidade => {
     const response = await axios.get(
       `https://testeapiclima.herokuapp.com/${cidade}`
     );
-    this.setState({ clima: response.data.weather[0].description });
+    this.setState({ clima: response.data.weather[0].description, temperatura: response.data.main.temp});
   };
 
   render() {
@@ -35,6 +35,7 @@ class App extends Component {
         </div>
         <div>
           <h1>{this.state.clima}</h1>
+          <h1>{this.state.temperatura}</h1>
         </div>
       </div>
     );
