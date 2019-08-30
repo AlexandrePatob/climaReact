@@ -27,7 +27,7 @@ class App extends Component {
           </button>
           <button
             onClick={() => {
-              this.setState({ cidade: "", clima: "" });
+              this.setState({ cidade: "", clima: "" , temperatura: ""});
             }}
           >
             Limpar
