@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { cidade: "", clima: "" };
+
+  chamarApiDoPato = async cidade => {
+    const response = await axios.get(
+      `http://testeapiclima.herokuapp.com/${cidade}`
+    );
+    this.setState({ clima: response.data.weather[0].description });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <input
+            type="text"
+            value={this.state.cidade}
+            onChange={e => this.setState({ cidade: e.target.value })}
+          />
+          <button
+            onClick={async () => await this.chamarApiDoPato(this.state.cidade)}
+          >
+            Ver clima
+          </button>
+          <button
+            onClick={() => {
+              this.setState({ cidade: "", clima: "" });
+            }}
+          >
+            Limpar
+          </button>
+        </div>
+        <div>
+          <h1>{this.state.clima}</h1>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
