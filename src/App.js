@@ -53,8 +53,8 @@ class App extends Component {
 					</button>
 				</div>
 				<div>
-					<h1>Cidade:{this.state.city}</h1>
-					<h1>Clima:{this.state.clima}</h1>
+					<h1>Cidade: {this.state.city}</h1>
+					<h1>Clima:  {this.state.clima}</h1>
 					<h1>Temperatura:{this.state.temperatura}</h1>
 					<h1>Temp Minima:{this.state.temperatura_min}</h1>
 					<h1>Temp Maxima:{this.state.temperatura_max}</h1>
