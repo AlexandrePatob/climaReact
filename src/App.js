@@ -41,6 +41,7 @@ class App extends Component {
 					<button
 						onClick={() => {
 							this.setState({
+                city:'',
 								cidade: '',
 								clima: '',
 								temperatura: '',
